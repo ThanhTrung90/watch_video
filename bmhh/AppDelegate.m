@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MainViewController.h"
+#import "AFNetworking.h"
 @interface AppDelegate ()
 
 @end
@@ -16,7 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    //Main view
+    MainViewController *mainVC = [[MainViewController alloc] init];
+    UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    
+    self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = mainNav;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
