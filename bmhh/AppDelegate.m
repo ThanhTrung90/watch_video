@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
-#import "AFNetworking.h"
+#import "MenuViewController.h"
+#import "SWRevealViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -19,10 +20,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //Main view
     MainViewController *mainVC = [[MainViewController alloc] init];
+    mainVC.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:mainVC];
     
+    MenuViewController *menuVC = [[MenuViewController alloc] init];
+    
+    SWRevealViewController *swRevealVC = [[SWRevealViewController alloc] initWithRearViewController:menuVC frontViewController:mainNav];
+    
     self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = mainNav;
+    self.window.rootViewController = swRevealVC;
     [self.window makeKeyAndVisible];
     return YES;
 }

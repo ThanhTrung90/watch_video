@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tblStageInfo;
 
 @property (strong, nonatomic) MainViewModel *mainViewModel;
-@property (strong, nonatomic) NSArray *listStage;
+@property (strong, nonatomic) NSMutableArray *listStage;
+@property (assign, nonatomic) NSInteger currentPage;
+@property (assign, nonatomic) NSInteger totalPage;
 @end

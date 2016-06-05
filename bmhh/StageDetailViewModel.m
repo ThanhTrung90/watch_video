@@ -36,7 +36,8 @@
     
     NSString *url = [NSString stringWithFormat:RETRIEVE_STAGE,stageId];
     [self getApiFromStringUrl:url
-                 withHeader:nil
+                 withHeaders:nil
+                andParameters:nil
                  thenCallBack:^(id  _Nonnull responseObject) {
                      NSDictionary *dict = responseObject;
                      StageDetailModel *detailModel = [[StageDetailModel alloc] initWithDictionary:dict];

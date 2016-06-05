@@ -11,6 +11,8 @@ target 'bmhh' do
     pod "youtube-ios-player-helper", "~> 0.1.4"
     
     pod 'MBProgressHUD', '~> 0.9.2'
+    
+    pod 'SWRevealViewController', '~> 2.3'
 end
 
 target 'bmhhTests' do

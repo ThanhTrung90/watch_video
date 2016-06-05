@@ -13,6 +13,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "URLCostant.h"
 #import "StageDetailViewController.h"
+#import "SWRevealViewController.h"
 @interface MainViewController()
 
 @end
@@ -23,26 +24,34 @@ static NSString *identifierCell = @"StageInfoCell";
 /* End variable*/
 
 -(void)viewDidLoad{
+    [super viewDidLoad];
     if (_mainViewModel == nil) {
         _mainViewModel = [[MainViewModel alloc] initWithViewController:self];
     }
-    [_mainViewModel listStage];
-    self.title = @"Main";
+    if (_listStage == nil) {
+        _listStage = [[NSMutableArray alloc] init];
+    }
+    _currentPage = -1;
+    _totalPage = 0;
+    _tblStageInfo.hidden = YES;
+    
+    self.title = @"Bạn muốn hẹn hò";
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    //For SWRevealViewController
+    SWRevealViewController *swRevealVC = [self revealViewController];
+    [swRevealVC panGestureRecognizer];
+    [swRevealVC tapGestureRecognizer];
+    UIImage *imgMenu = [UIImage imageNamed:@"Menu-50.png"];
+    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:imgMenu style:UIBarButtonItemStyleDone target:swRevealVC action:@selector(revealToggle:)];
+    
+    self.navigationItem.leftBarButtonItem = revealButtonItem;
 }
 #pragma mark - UITableViewDelegate
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 120.0;
-}
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.y <= (scrollView.contentSize.height - scrollView.bounds.size.height)) {
-        
-    } else {
-        
+    if (indexPath.section == _listStage.count) {
+        return 30;
     }
-}
--(void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
-    NSLog(@"To Top");
+    return 120.0;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -60,34 +69,45 @@ static NSString *identifierCell = @"StageInfoCell";
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSInteger number = 0;
-    if (_listStage) {
-        number = _listStage.count;
+    if (_currentPage == _totalPage) {
+        return _listStage.count;
     }
-    if (number == 0) {
-        _tblStageInfo.hidden = YES;
-    } else {
-        _tblStageInfo.hidden = NO;
+    return _listStage.count + 1;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == _listStage.count) {
+        if (_currentPage == -1) {
+            _currentPage = 0;
+        }
+        [_mainViewModel addListStageFromPageNo:++_currentPage];
     }
-    return number;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    StageInfoModel *stageInfo = [_listStage objectAtIndex:indexPath.section];
-    
-    StageInfoCell *cell = (StageInfoCell *)[tableView dequeueReusableCellWithIdentifier:identifierCell];
-    if (cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:identifierCell owner:self options:nil];
-        cell = nib[0];
+    if (indexPath.section == _listStage.count) {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LastStageInfoCell"];
+//        cell.textLabel.text = @"Loading ...";
+//        cell.textLabel.textColor = [UIColor redColor];
+//        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        return cell;
+    } else {
+        StageInfoModel *stageInfo = [_listStage objectAtIndex:indexPath.section];
+        
+        StageInfoCell *cell = (StageInfoCell *)[tableView dequeueReusableCellWithIdentifier:identifierCell];
+        if (cell == nil) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:identifierCell owner:self options:nil];
+            cell = nib[0];
+        }
+        cell.txvDesStage.text = stageInfo.shortDescription;
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:stageInfo.thumbImage]  cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:REQUEST_TIMEOUT];
+        [cell.imgStage setImageWithURLRequest:urlRequest placeholderImage:[UIImage imageNamed:@"img_no_preview.jpg"] success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+            [cell.imgStage setImage:image];
+            [cell.spin stopAnimating];
+            cell.spin.hidden = YES;
+        } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+            [cell.imgStage setImage:[UIImage imageNamed:@"img_no_preview.jpg"]];
+        }];
+        return cell;
     }
-    cell.txvDesStage.text = stageInfo.shortDescription;
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:stageInfo.thumbImage]  cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:REQUEST_TIMEOUT];
-    [cell.imgStage setImageWithURLRequest:urlRequest placeholderImage:[UIImage imageNamed:@"img_no_preview.jpg"] success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
-        [cell.imgStage setImage:image];
-        [cell.spin stopAnimating];
-        cell.spin.hidden = YES;
-    } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-        [cell.imgStage setImage:[UIImage imageNamed:@"img_no_preview.jpg"]];
-    }];
-    return cell;
 }
 @end

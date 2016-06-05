@@ -14,7 +14,11 @@
 		4925E0171CFCC1A800591D1D /* StageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4925E0151CFCC1A800591D1D /* StageDetailViewController.xib */; };
 		4925E01A1CFCC33C00591D1D /* StageDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925E0191CFCC33C00591D1D /* StageDetailViewModel.m */; };
 		4925E01C1CFCDBC700591D1D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4925E01B1CFCDBC700591D1D /* AVFoundation.framework */; };
+		492A13C11D043E02006B8742 /* MenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 492A13C01D043E02006B8742 /* MenuViewModel.m */; };
+		492A13C41D043E17006B8742 /* MenuItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 492A13C31D043E17006B8742 /* MenuItemModel.m */; };
 		493776651D03D45F0055FA6F /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 493776641D03D45F0055FA6F /* BaseViewModel.m */; };
+		498DFC2A1D041E27006ADAC0 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498DFC281D041E27006ADAC0 /* MenuViewController.m */; };
+		498DFC2B1D041E27006ADAC0 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 498DFC291D041E27006ADAC0 /* MenuViewController.xib */; };
 		49A059BD1CF7DB01007A791F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A059BC1CF7DB01007A791F /* MainViewController.m */; };
 		49A059BF1CF7DB13007A791F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A059BE1CF7DB13007A791F /* MainViewController.xib */; };
 		49A059C31CF7DD5B007A791F /* MainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A059C21CF7DD5B007A791F /* MainViewModel.m */; };
@@ -61,8 +65,15 @@
 		4925E0181CFCC33C00591D1D /* StageDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageDetailViewModel.h; sourceTree = "<group>"; };
 		4925E0191CFCC33C00591D1D /* StageDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageDetailViewModel.m; sourceTree = "<group>"; };
 		4925E01B1CFCDBC700591D1D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		492A13BF1D043E02006B8742 /* MenuViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewModel.h; sourceTree = "<group>"; };
+		492A13C01D043E02006B8742 /* MenuViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewModel.m; sourceTree = "<group>"; };
+		492A13C21D043E17006B8742 /* MenuItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemModel.h; sourceTree = "<group>"; };
+		492A13C31D043E17006B8742 /* MenuItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemModel.m; sourceTree = "<group>"; };
 		493776631D03D45F0055FA6F /* BaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
 		493776641D03D45F0055FA6F /* BaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
+		498DFC271D041E27006ADAC0 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		498DFC281D041E27006ADAC0 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		498DFC291D041E27006ADAC0 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		49A059BB1CF7DB01007A791F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		49A059BC1CF7DB01007A791F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		49A059BE1CF7DB13007A791F /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
@@ -142,6 +153,15 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		498DFC231D041D4D006ADAC0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				49C4E9691CF7D90200B2A311 /* AppDelegate.h */,
+				49C4E96A1CF7D90200B2A311 /* AppDelegate.m */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
 		49A059C01CF7DD3E007A791F /* View Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +171,8 @@
 				4925E0191CFCC33C00591D1D /* StageDetailViewModel.m */,
 				493776631D03D45F0055FA6F /* BaseViewModel.h */,
 				493776641D03D45F0055FA6F /* BaseViewModel.m */,
+				492A13BF1D043E02006B8742 /* MenuViewModel.h */,
+				492A13C01D043E02006B8742 /* MenuViewModel.m */,
 			);
 			name = "View Model";
 			sourceTree = "<group>";
@@ -182,6 +204,8 @@
 				49A059CF1CF821DE007A791F /* StageInfoModel.m */,
 				4925E0101CFCC07800591D1D /* StageDetailModel.h */,
 				4925E0111CFCC07800591D1D /* StageDetailModel.m */,
+				492A13C21D043E17006B8742 /* MenuItemModel.h */,
+				492A13C31D043E17006B8742 /* MenuItemModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -221,6 +245,7 @@
 		49C4E9651CF7D90200B2A311 /* bmhh */ = {
 			isa = PBXGroup;
 			children = (
+				498DFC231D041D4D006ADAC0 /* App */,
 				4925E00C1CFCB3A000591D1D /* Utils */,
 				49A059D21CF8248E007A791F /* Custom View */,
 				49A059D11CF822D7007A791F /* Model */,
@@ -228,8 +253,6 @@
 				49A059C41CF7DFA5007A791F /* Protocol */,
 				49A059C01CF7DD3E007A791F /* View Model */,
 				49C4E99C1CF7D97000B2A311 /* View Controller */,
-				49C4E9691CF7D90200B2A311 /* AppDelegate.h */,
-				49C4E96A1CF7D90200B2A311 /* AppDelegate.m */,
 				49C4E9661CF7D90200B2A311 /* Supporting Files */,
 			);
 			path = bmhh;
@@ -274,6 +297,9 @@
 				4925E0131CFCC1A800591D1D /* StageDetailViewController.h */,
 				4925E0141CFCC1A800591D1D /* StageDetailViewController.m */,
 				4925E0151CFCC1A800591D1D /* StageDetailViewController.xib */,
+				498DFC271D041E27006ADAC0 /* MenuViewController.h */,
+				498DFC281D041E27006ADAC0 /* MenuViewController.m */,
+				498DFC291D041E27006ADAC0 /* MenuViewController.xib */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -398,6 +424,7 @@
 				49A059BF1CF7DB13007A791F /* MainViewController.xib in Resources */,
 				49A059D71CF82623007A791F /* StageInfoCell.xib in Resources */,
 				4925E0171CFCC1A800591D1D /* StageDetailViewController.xib in Resources */,
+				498DFC2B1D041E27006ADAC0 /* MenuViewController.xib in Resources */,
 				49C4E9761CF7D90200B2A311 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,12 +502,15 @@
 				493776651D03D45F0055FA6F /* BaseViewModel.m in Sources */,
 				4925E0161CFCC1A800591D1D /* StageDetailViewController.m in Sources */,
 				49A059C91CF7E238007A791F /* APIUrlConnection.m in Sources */,
+				498DFC2A1D041E27006ADAC0 /* MenuViewController.m in Sources */,
+				492A13C41D043E17006B8742 /* MenuItemModel.m in Sources */,
 				49A059D61CF82623007A791F /* StageInfoCell.m in Sources */,
 				49C4E9741CF7D90200B2A311 /* bmhh.xcdatamodeld in Sources */,
 				4925E00F1CFCB3FD00591D1D /* Utils.m in Sources */,
 				49A059CD1CF7F33F007A791F /* APIAFNetworking.m in Sources */,
 				49C4E96B1CF7D90200B2A311 /* AppDelegate.m in Sources */,
 				4925E0121CFCC07800591D1D /* StageDetailModel.m in Sources */,
+				492A13C11D043E02006B8742 /* MenuViewModel.m in Sources */,
 				49A059D01CF821DE007A791F /* StageInfoModel.m in Sources */,
 				49C4E9681CF7D90200B2A311 /* main.m in Sources */,
 				49A059C31CF7DD5B007A791F /* MainViewModel.m in Sources */,

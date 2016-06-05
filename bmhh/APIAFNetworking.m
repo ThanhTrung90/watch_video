@@ -12,7 +12,7 @@
 #import "StageInfoModel.h"
 #import "URLCostant.h"
 @implementation APIAFNetworking
--(void)getApiFromStringUrl:(NSString *)strUrl withHeader:(NSDictionary<NSString *,NSString *> *)headers thenCallBack:(ApiCallBack)callBack completionCallBack:(CompletionCallBack)completionCallBack orNonReachable:(ProcessNonReachable)processNonReachable{
+-(void)getApiFromStringUrl:(NSString *)strUrl withHeaders:(NSDictionary<NSString *,NSString *> * _Nullable)headers andParameters:(NSDictionary<NSString *,NSString *> * _Nullable)parameters thenCallBack:(ApiCallBack _Nonnull)callBack completionCallBack:(CompletionCallBack _Nonnull)completionCallBack orNonReachable:(ProcessNonReachable _Nonnull)processNonReachable{
     AFNetworkReachabilityManager *reachabilityManager = [AFNetworkReachabilityManager sharedManager];
     [reachabilityManager startMonitoring];
     [reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
@@ -31,14 +31,13 @@
                     [requestSerializer setValue:value forHTTPHeaderField:key];
                 }
             }
-            
             manager.requestSerializer = requestSerializer;
             
             AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];
             responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
             manager.responseSerializer = responseSerializer;
             
-            [manager GET:strUrl parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+            [manager GET:strUrl parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
                 NSLog(@"%@",downloadProgress.description);
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 if (responseObject) {

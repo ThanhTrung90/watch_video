@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "APIProtocol.h"
 #import "MBProgressHUD.h"
+
+#define PAGE_SIZE       5
+
 @interface BaseViewModel : NSObject
 -(void) getApiFromStringUrl : (NSString* _Nonnull)strUrl
-                 withHeader : (NSDictionary<NSString *,NSString *>  * _Nullable)headers
+                withHeaders : (NSDictionary<NSString *,NSString *> * _Nullable)headers
+              andParameters : (NSDictionary<NSString *,NSString *> * _Nullable)parameters
                thenCallBack : (ApiCallBack _Nonnull)callBack
              orNonReachable : (ProcessNonReachable _Nonnull)processNonReachable;
 @end

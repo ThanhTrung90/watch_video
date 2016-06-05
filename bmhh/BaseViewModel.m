@@ -22,12 +22,15 @@
     }
     return self;
 }
--(void)getApiFromStringUrl:(NSString *)strUrl withHeader:(NSDictionary<NSString *,NSString *> *)headers thenCallBack:(ApiCallBack)callBack orNonReachable:(ProcessNonReachable)processNonReachable{
+-(void)getApiFromStringUrl:(NSString *)strUrl withHeaders:(NSDictionary<NSString *,NSString *> *)headers andParameters : (NSDictionary<NSString *,NSString *> *)parameters thenCallBack:(ApiCallBack)callBack orNonReachable:(ProcessNonReachable)processNonReachable{
     UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+    [MBProgressHUD hideAllHUDsForView:window animated:YES];
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:window animated:YES];
+    
     HUD.mode = MBProgressHUDAnimationFade;
     [api getApiFromStringUrl:strUrl
-                  withHeader:headers
+                  withHeaders:headers
+                andParameters:parameters
                 thenCallBack:callBack
           completionCallBack:^{
               [HUD setHidden:YES];

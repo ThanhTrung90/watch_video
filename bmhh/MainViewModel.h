@@ -14,5 +14,5 @@
 
 @interface MainViewModel : BaseViewModel
 -(id) initWithViewController : (MainViewController *) mainVC;
--(void) listStage;
+-(void) addListStageFromPageNo : (NSInteger) pageNo;
 @end

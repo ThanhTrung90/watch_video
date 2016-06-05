@@ -8,6 +8,7 @@
 
 #import "StageDetailViewController.h"
 #import "StageDetailViewModel.h"
+#import "SWRevealViewController.h"
 @interface StageDetailViewController ()
 
 @end

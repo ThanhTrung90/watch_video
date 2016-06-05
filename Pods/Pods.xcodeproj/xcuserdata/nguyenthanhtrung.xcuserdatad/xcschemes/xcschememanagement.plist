@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SWRevealViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>youtube-ios-player-helper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,7 +32,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>883D0211B38384A81F688271959EFA77</key>
+		<key>36330BCB23C31B951B8979ABA9D4E91A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -37,7 +42,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D607239843C6A55A9D35D1F045DAE57D</key>
+		<key>99A3DF02EFD9F8633A4E660064DB79A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F27C914A431BC4A5F45DDD59FADFFAE4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

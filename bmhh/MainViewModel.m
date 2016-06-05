@@ -28,33 +28,53 @@
     return self;
 }
 
--(void)listStage{
+-(void)addListStageFromPageNo : (NSInteger) pageNo{
     NSMutableArray *listAction = [[NSMutableArray alloc] init];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     [listAction addObject:cancelAction];
     UIAlertAction *tryAgainAction = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self listStage];
+        [self addListStageFromPageNo : pageNo];
     }];
     [listAction addObject:tryAgainAction];
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
     [headers setObject:@"DCAC3003-5CEB-4631-8C1D-427DADEE1BC2" forKey:@"secret-key"];
-//    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:_mainVC.view animated:YES];
-//    HUD.mode = MBProgressHUDAnimationFade;
-    
+
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:[NSString stringWithFormat:@"%d",(int)pageNo] forKey:@"CurrentPage"];
+    [params setObject:[NSString stringWithFormat:@"%d",(int)PAGE_SIZE] forKey:@"pageSize"];
     [self getApiFromStringUrl:LIST_STAGE
-                   withHeader:headers
+                   withHeaders:headers
+                andParameters:params
                  thenCallBack:^(id _Nonnull responseObject){
                      NSMutableArray *mutableArrStage = [[NSMutableArray alloc] init];
-                     NSArray *arr = responseObject;
-                     for (int i = 0; i < arr.count; i++) {
-                         NSDictionary *dict = arr[i];
+                     NSDictionary *response = responseObject;
+                     NSString *strTotalStage = response[@"TotalRecord"];
+                     if (strTotalStage) {
+                         NSInteger totalRecord= [strTotalStage integerValue];
+                         if (totalRecord%PAGE_SIZE == 0) {
+                             _mainVC.totalPage = totalRecord/PAGE_SIZE;
+                         } else {
+                             _mainVC.totalPage = totalRecord/PAGE_SIZE + 1;
+                         }
+                     }
+                     NSArray *listStage = response[@"Records"];
+                     for (int i = 0; i < listStage.count; i++) {
+                         NSDictionary *dict = listStage[i];
                          StageInfoModel *stage = [[StageInfoModel alloc] initWithDictionary:dict];
                          if (stage) {
                              [mutableArrStage addObject:stage];
                          }
                      }
-                     _mainVC.listStage = mutableArrStage;
-                     [_mainVC.tblStageInfo reloadData];
+                     if (mutableArrStage.count > 0) {
+                         [_mainVC.listStage addObjectsFromArray:mutableArrStage];
+                         
+                         dispatch_async(dispatch_get_main_queue(), ^{
+                             if (_mainVC.tblStageInfo.hidden) {
+                                 _mainVC.tblStageInfo.hidden = NO;
+                             }
+                            [_mainVC.tblStageInfo reloadData];
+                         });
+                     }
                      
                  }
                orNonReachable:^(NSString* message){
