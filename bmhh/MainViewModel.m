@@ -12,6 +12,7 @@
 #import "StageInfoModel.h"
 #import "URLCostant.h"
 #import "Utils.h"
+#import "MBProgressHUD.h"
 @interface MainViewModel()
 @property (weak, nonatomic) MainViewController *mainVC;
 @property (strong, nonatomic) id<APIProtocol> api;
@@ -26,6 +27,7 @@
     }
     return self;
 }
+
 -(void)listStage{
     NSMutableArray *listAction = [[NSMutableArray alloc] init];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
@@ -36,7 +38,10 @@
     [listAction addObject:tryAgainAction];
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
     [headers setObject:@"DCAC3003-5CEB-4631-8C1D-427DADEE1BC2" forKey:@"secret-key"];
-    [_api getApiFromStringUrl:LIST_STAGE
+//    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:_mainVC.view animated:YES];
+//    HUD.mode = MBProgressHUDAnimationFade;
+    
+    [self getApiFromStringUrl:LIST_STAGE
                    withHeader:headers
                  thenCallBack:^(id _Nonnull responseObject){
                      NSMutableArray *mutableArrStage = [[NSMutableArray alloc] init];
@@ -50,34 +55,11 @@
                      }
                      _mainVC.listStage = mutableArrStage;
                      [_mainVC.tblStageInfo reloadData];
+                     
                  }
-                 orNonReachable:^{
-                     [Utils createAlertForViewController:_mainVC withTitle:@"Warning !" andMessage:@"Không kết nối được internet !" andListAction:listAction];
-                 }
-    ];
-}
--(StageInfoModel *)stageAtIndex:(NSInteger)index {
-    StageInfoModel *stage = [[StageInfoModel alloc] init];
-    stage.thumbImage = @"https://i.ytimg.com/vi/pM9Fezmwy_Q/hqdefault.jpg";
-    stage.shortDescription = @"BẠN MUỐN HẸN HÒ - Tập 10 | Đức Anh - Ái Loan | Hoàng Linh - Thanh Tâm | 12/01/2014";
-    stage.name = @"BẠN MUỐN HẸN HÒ - Tập 10 | Đức Anh - Ái Loan | Hoàng Linh - Thanh Tâm | 12/01/2014";
-    stage.rating = @"7";
-    stage.shareTotal = @"123";
-    stage.likeTotal = @"323";
-    return stage;
-}
--(NSArray *)listStageOfPageIndex:(NSInteger)pageIndex withPageSize:(NSInteger)pageSize {
-    NSMutableArray *arr = [[NSMutableArray alloc] init];
-    for (int i=0; i<pageSize; i++) {
-        StageInfoModel *stage = [[StageInfoModel alloc] init];
-        stage.thumbImage = @"https://i.ytimg.com/vi/pM9Fezmwy_Q/hqdefault.jpg";
-        stage.shortDescription = @"BẠN MUỐN HẸN HÒ - Tập 10 | Đức Anh - Ái Loan | Hoàng Linh - Thanh Tâm | 12/01/2014";
-        stage.name = @"BẠN MUỐN HẸN HÒ - Tập 10 | Đức Anh - Ái Loan | Hoàng Linh - Thanh Tâm | 12/01/2014";
-        stage.rating = @"7";
-        stage.shareTotal = @"123";
-        stage.likeTotal = @"323";
-        [arr addObject:stage];
-    }
-    return arr;
+               orNonReachable:^(NSString* message){
+                   [Utils createAlertForViewController:_mainVC withTitle:@"Lỗi" andMessage:message andListAction:listAction];
+               }
+     ];
 }
 @end

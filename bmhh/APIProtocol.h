@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 typedef void (^ApiCallBack)(id _Nonnull responseObject);
-typedef void (^ProcessNonReachable)(void);
+typedef void (^ProcessNonReachable)(NSString* _Nonnull message);
+typedef void (^CompletionCallBack)(void);
 @protocol APIProtocol <NSObject>
--(void) getApiFromStringUrl : (NSString * _Nonnull)strUrl withHeader : (NSDictionary<NSString *,NSString *>  * _Nullable)headers thenCallBack : (ApiCallBack _Nonnull)callBack orNonReachable : (ProcessNonReachable _Nonnull)processNonReachable;
+-(void) getApiFromStringUrl : (NSString * _Nonnull)strUrl withHeader : (NSDictionary<NSString *,NSString *>  * _Nullable)headers thenCallBack : (ApiCallBack _Nonnull)callBack completionCallBack :(CompletionCallBack _Nonnull)completionCallBack orNonReachable : (ProcessNonReachable _Nonnull)processNonReachable;
 @end

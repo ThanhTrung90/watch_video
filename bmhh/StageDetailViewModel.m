@@ -15,7 +15,6 @@
 #import <AVFoundation/AVFoundation.h>
 @interface StageDetailViewModel()
 @property (weak, nonatomic) StageDetailViewController *stageDetailVC;
-@property (strong, nonatomic) id<APIProtocol> api;
 @end
 @implementation StageDetailViewModel
 -(id)initWithStageDetailViewController:(StageDetailViewController *)stageDetailVC {
@@ -23,8 +22,6 @@
     if (self) {
         _stageDetailVC = stageDetailVC;
         _stageDetailVC.stageDetailVM = self;
-        
-        _api = [[APIAFNetworking alloc] init];
     }
     return self;
 }
@@ -38,7 +35,7 @@
     [listAction addObject:tryAgainAction];
     
     NSString *url = [NSString stringWithFormat:RETRIEVE_STAGE,stageId];
-    [_api getApiFromStringUrl:url
+    [self getApiFromStringUrl:url
                  withHeader:nil
                  thenCallBack:^(id  _Nonnull responseObject) {
                      NSDictionary *dict = responseObject;
@@ -57,8 +54,8 @@
                              [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: &setCategoryError];
                          }
                      }
-                 } orNonReachable:^{
-                     [Utils createAlertForViewController:_stageDetailVC withTitle:@"Warning" andMessage:@"Không kết nối được internet !" andListAction:listAction];
+                 } orNonReachable:^(NSString* message){
+                     [Utils createAlertForViewController:_stageDetailVC withTitle:@"Lỗi" andMessage:message andListAction:listAction];
                  }
     ];
 }

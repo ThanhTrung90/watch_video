@@ -14,6 +14,7 @@
 		4925E0171CFCC1A800591D1D /* StageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4925E0151CFCC1A800591D1D /* StageDetailViewController.xib */; };
 		4925E01A1CFCC33C00591D1D /* StageDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925E0191CFCC33C00591D1D /* StageDetailViewModel.m */; };
 		4925E01C1CFCDBC700591D1D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4925E01B1CFCDBC700591D1D /* AVFoundation.framework */; };
+		493776651D03D45F0055FA6F /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 493776641D03D45F0055FA6F /* BaseViewModel.m */; };
 		49A059BD1CF7DB01007A791F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A059BC1CF7DB01007A791F /* MainViewController.m */; };
 		49A059BF1CF7DB13007A791F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A059BE1CF7DB13007A791F /* MainViewController.xib */; };
 		49A059C31CF7DD5B007A791F /* MainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A059C21CF7DD5B007A791F /* MainViewModel.m */; };
@@ -60,6 +61,8 @@
 		4925E0181CFCC33C00591D1D /* StageDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageDetailViewModel.h; sourceTree = "<group>"; };
 		4925E0191CFCC33C00591D1D /* StageDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageDetailViewModel.m; sourceTree = "<group>"; };
 		4925E01B1CFCDBC700591D1D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		493776631D03D45F0055FA6F /* BaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
+		493776641D03D45F0055FA6F /* BaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
 		49A059BB1CF7DB01007A791F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		49A059BC1CF7DB01007A791F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		49A059BE1CF7DB13007A791F /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 				49A059C21CF7DD5B007A791F /* MainViewModel.m */,
 				4925E0181CFCC33C00591D1D /* StageDetailViewModel.h */,
 				4925E0191CFCC33C00591D1D /* StageDetailViewModel.m */,
+				493776631D03D45F0055FA6F /* BaseViewModel.h */,
+				493776641D03D45F0055FA6F /* BaseViewModel.m */,
 			);
 			name = "View Model";
 			sourceTree = "<group>";
@@ -467,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4925E01A1CFCC33C00591D1D /* StageDetailViewModel.m in Sources */,
+				493776651D03D45F0055FA6F /* BaseViewModel.m in Sources */,
 				4925E0161CFCC1A800591D1D /* StageDetailViewController.m in Sources */,
 				49A059C91CF7E238007A791F /* APIUrlConnection.m in Sources */,
 				49A059D61CF82623007A791F /* StageInfoCell.m in Sources */,

@@ -12,12 +12,13 @@
 #import "StageInfoModel.h"
 #import "URLCostant.h"
 @implementation APIAFNetworking
--(void)getApiFromStringUrl:(NSString *)strUrl withHeader : (NSDictionary<NSString *,NSString *>  * _Nullable)headers thenCallBack:(ApiCallBack _Nonnull)callBack orNonReachable:(ProcessNonReachable _Nonnull)processNonReachable{
+-(void)getApiFromStringUrl:(NSString *)strUrl withHeader:(NSDictionary<NSString *,NSString *> *)headers thenCallBack:(ApiCallBack)callBack completionCallBack:(CompletionCallBack)completionCallBack orNonReachable:(ProcessNonReachable)processNonReachable{
     AFNetworkReachabilityManager *reachabilityManager = [AFNetworkReachabilityManager sharedManager];
     [reachabilityManager startMonitoring];
     [reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status == AFNetworkReachabilityStatusUnknown || status == AFNetworkReachabilityStatusNotReachable) {
-            processNonReachable();
+            completionCallBack();
+            processNonReachable(@"Hãy kiểm tra lại kết nối Internet của bạn.");
         } else {
             AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
             
@@ -30,6 +31,7 @@
                     [requestSerializer setValue:value forHTTPHeaderField:key];
                 }
             }
+            
             manager.requestSerializer = requestSerializer;
             
             AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];
@@ -41,11 +43,16 @@
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 if (responseObject) {
                     callBack(responseObject);
+                    completionCallBack();
                 } else {
                     NSLog(@"Not response");
+                    completionCallBack();
+                    processNonReachable(@"Có lỗi trong quá trình lấy dữ liệu. Hãy thử lại!");
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 NSLog(@"%@",error.description);
+                completionCallBack();
+                processNonReachable(@"Có lỗi trong quá trình lấy dữ liệu. Hãy thử lại!");
             }];
         }
     }];

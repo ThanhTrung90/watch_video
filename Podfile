@@ -9,6 +9,8 @@ target 'bmhh' do
     pod 'AFNetworking', '~> 3.0'
     
     pod "youtube-ios-player-helper", "~> 0.1.4"
+    
+    pod 'MBProgressHUD', '~> 0.9.2'
 end
 
 target 'bmhhTests' do

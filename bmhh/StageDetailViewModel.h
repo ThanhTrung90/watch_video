@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseViewModel.h"
 @class StageDetailViewController;
-@interface StageDetailViewModel : NSObject
+@interface StageDetailViewModel : BaseViewModel
 -(id) initWithStageDetailViewController : (StageDetailViewController *)stageDetailVC;
 -(void) retrieveStageDetailWithId : (NSString *)stageId;
 @end

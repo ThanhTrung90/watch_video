@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseViewModel.h"
 
 @class MainViewController;
 @class StageInfoModel;
-@interface MainViewModel : NSObject
+
+@interface MainViewModel : BaseViewModel
 -(id) initWithViewController : (MainViewController *) mainVC;
 -(void) listStage;
--(StageInfoModel *) stageAtIndex : (NSInteger)index;
--(NSArray *) listStageOfPageIndex : (NSInteger) pageIndex withPageSize : (NSInteger) pageSize;
 @end
