@@ -56,4 +56,42 @@
         }
     }];
 }
+-(void)downloadImageFromStringUrl:(NSString *)strURl thenCallBack:(DataCallBack)callBack completionCallBack:(CompletionCallBack)completionCallBack orNonReachable:(ProcessNonReachable)processNonReachable {
+    AFNetworkReachabilityManager *reachabilityManager = [AFNetworkReachabilityManager sharedManager];
+    [reachabilityManager startMonitoring];
+    [reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (status == AFNetworkReachabilityStatusUnknown || status == AFNetworkReachabilityStatusNotReachable) {
+            completionCallBack();
+            processNonReachable(@"Hãy kiểm tra lại kết nối Internet của bạn.");
+        } else {
+            //will edit late
+            NSURLSessionConfiguration *sessionConfiguration = [ NSURLSessionConfiguration defaultSessionConfiguration];
+            
+            AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:sessionConfiguration];
+            
+            NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:strURl] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:REQUEST_TIMEOUT];
+            
+            AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];
+            responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"image/gif", @"image/png", @"image/jpeg", nil];
+            manager.responseSerializer = responseSerializer;
+            
+            [[manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+                NSLog(@"%@",downloadProgress.description);
+            } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+                NSString *strTargetPath = [targetPath absoluteString];
+                NSString *fileName = [strTargetPath substringFromIndex:[strTargetPath rangeOfString:@"/" options:NSBackwardsSearch].location];
+                NSURL *documentPathURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+                NSURL *filePath = [documentPathURL URLByAppendingPathComponent:fileName];
+                return filePath;
+            } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+                if (error == nil) {
+                    callBack(filePath);
+                } else {
+                    NSLog(@"%@", error.description);
+                }
+                completionCallBack();
+            }] resume];
+        }
+    }];
+}
 @end

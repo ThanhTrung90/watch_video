@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		16A38F77331ED6745DA9AE2C /* libPods-bmhh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C850E8A715547D130DA8842 /* libPods-bmhh.a */; };
+		49132E5C1D0550E600D28A62 /* LoadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49132E5A1D0550E600D28A62 /* LoadingCell.m */; };
+		49132E5D1D0550E600D28A62 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49132E5B1D0550E600D28A62 /* LoadingCell.xib */; };
 		4925E00F1CFCB3FD00591D1D /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925E00E1CFCB3FD00591D1D /* Utils.m */; };
 		4925E0121CFCC07800591D1D /* StageDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925E0111CFCC07800591D1D /* StageDetailModel.m */; };
 		4925E0161CFCC1A800591D1D /* StageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925E0141CFCC1A800591D1D /* StageDetailViewController.m */; };
@@ -22,7 +24,6 @@
 		49A059BD1CF7DB01007A791F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A059BC1CF7DB01007A791F /* MainViewController.m */; };
 		49A059BF1CF7DB13007A791F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A059BE1CF7DB13007A791F /* MainViewController.xib */; };
 		49A059C31CF7DD5B007A791F /* MainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A059C21CF7DD5B007A791F /* MainViewModel.m */; };
-		49A059C91CF7E238007A791F /* APIUrlConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A059C81CF7E238007A791F /* APIUrlConnection.m */; };
 		49A059CD1CF7F33F007A791F /* APIAFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A059CC1CF7F33F007A791F /* APIAFNetworking.m */; };
 		49A059D01CF821DE007A791F /* StageInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A059CF1CF821DE007A791F /* StageInfoModel.m */; };
 		49A059D61CF82623007A791F /* StageInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A059D41CF82623007A791F /* StageInfoCell.m */; };
@@ -34,6 +35,12 @@
 		49C4E9791CF7D90200B2A311 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C4E9771CF7D90200B2A311 /* LaunchScreen.storyboard */; };
 		49C4E9841CF7D90300B2A311 /* bmhhTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C4E9831CF7D90300B2A311 /* bmhhTests.m */; };
 		49C4E98F1CF7D90300B2A311 /* bmhhUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C4E98E1CF7D90300B2A311 /* bmhhUITests.m */; };
+		49CFEEDE1D072F6900475AF4 /* MainCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CFEEDC1D072F6900475AF4 /* MainCollectionViewController.m */; };
+		49CFEEDF1D072F6900475AF4 /* MainCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CFEEDD1D072F6900475AF4 /* MainCollectionViewController.xib */; };
+		49CFEEE31D073B5A00475AF4 /* StageInfoColCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CFEEE11D073B5A00475AF4 /* StageInfoColCell.m */; };
+		49CFEEE41D073B5A00475AF4 /* StageInfoColCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CFEEE21D073B5A00475AF4 /* StageInfoColCell.xib */; };
+		49CFEEE71D0752E700475AF4 /* APINSURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CFEEE61D0752E700475AF4 /* APINSURLSession.m */; };
+		49F5384C1D07FA8B00032004 /* MainColViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F5384B1D07FA8B00032004 /* MainColViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +62,9 @@
 
 /* Begin PBXFileReference section */
 		3FAF6D933E888ABB4EF75D02 /* Pods-bmhh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bmhh.release.xcconfig"; path = "Pods/Target Support Files/Pods-bmhh/Pods-bmhh.release.xcconfig"; sourceTree = "<group>"; };
+		49132E591D0550E600D28A62 /* LoadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingCell.h; sourceTree = "<group>"; };
+		49132E5A1D0550E600D28A62 /* LoadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingCell.m; sourceTree = "<group>"; };
+		49132E5B1D0550E600D28A62 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		4925E00D1CFCB3FD00591D1D /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		4925E00E1CFCB3FD00591D1D /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		4925E0101CFCC07800591D1D /* StageDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageDetailModel.h; sourceTree = "<group>"; };
@@ -80,8 +90,6 @@
 		49A059C11CF7DD5B007A791F /* MainViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewModel.h; sourceTree = "<group>"; };
 		49A059C21CF7DD5B007A791F /* MainViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewModel.m; sourceTree = "<group>"; };
 		49A059C51CF7E168007A791F /* APIProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIProtocol.h; sourceTree = "<group>"; };
-		49A059C71CF7E238007A791F /* APIUrlConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIUrlConnection.h; sourceTree = "<group>"; };
-		49A059C81CF7E238007A791F /* APIUrlConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIUrlConnection.m; sourceTree = "<group>"; };
 		49A059CA1CF7E2CF007A791F /* URLCostant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLCostant.h; sourceTree = "<group>"; };
 		49A059CB1CF7F33F007A791F /* APIAFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIAFNetworking.h; sourceTree = "<group>"; };
 		49A059CC1CF7F33F007A791F /* APIAFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIAFNetworking.m; sourceTree = "<group>"; };
@@ -104,6 +112,16 @@
 		49C4E98A1CF7D90300B2A311 /* bmhhUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bmhhUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C4E98E1CF7D90300B2A311 /* bmhhUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bmhhUITests.m; sourceTree = "<group>"; };
 		49C4E9901CF7D90300B2A311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49CFEEDB1D072F6900475AF4 /* MainCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewController.h; sourceTree = "<group>"; };
+		49CFEEDC1D072F6900475AF4 /* MainCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCollectionViewController.m; sourceTree = "<group>"; };
+		49CFEEDD1D072F6900475AF4 /* MainCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainCollectionViewController.xib; sourceTree = "<group>"; };
+		49CFEEE01D073B5A00475AF4 /* StageInfoColCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageInfoColCell.h; sourceTree = "<group>"; };
+		49CFEEE11D073B5A00475AF4 /* StageInfoColCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageInfoColCell.m; sourceTree = "<group>"; };
+		49CFEEE21D073B5A00475AF4 /* StageInfoColCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StageInfoColCell.xib; sourceTree = "<group>"; };
+		49CFEEE51D0752E700475AF4 /* APINSURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APINSURLSession.h; sourceTree = "<group>"; };
+		49CFEEE61D0752E700475AF4 /* APINSURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APINSURLSession.m; sourceTree = "<group>"; };
+		49F5384A1D07FA8B00032004 /* MainColViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainColViewModel.h; sourceTree = "<group>"; };
+		49F5384B1D07FA8B00032004 /* MainColViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainColViewModel.m; sourceTree = "<group>"; };
 		4C850E8A715547D130DA8842 /* libPods-bmhh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bmhh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F53741D710286F5AE5D9AE0B /* Pods-bmhh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bmhh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bmhh/Pods-bmhh.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +191,8 @@
 				493776641D03D45F0055FA6F /* BaseViewModel.m */,
 				492A13BF1D043E02006B8742 /* MenuViewModel.h */,
 				492A13C01D043E02006B8742 /* MenuViewModel.m */,
+				49F5384A1D07FA8B00032004 /* MainColViewModel.h */,
+				49F5384B1D07FA8B00032004 /* MainColViewModel.m */,
 			);
 			name = "View Model";
 			sourceTree = "<group>";
@@ -188,11 +208,11 @@
 		49A059C61CF7E200007A791F /* API */ = {
 			isa = PBXGroup;
 			children = (
-				49A059C71CF7E238007A791F /* APIUrlConnection.h */,
-				49A059C81CF7E238007A791F /* APIUrlConnection.m */,
 				49A059CA1CF7E2CF007A791F /* URLCostant.h */,
 				49A059CB1CF7F33F007A791F /* APIAFNetworking.h */,
 				49A059CC1CF7F33F007A791F /* APIAFNetworking.m */,
+				49CFEEE51D0752E700475AF4 /* APINSURLSession.h */,
+				49CFEEE61D0752E700475AF4 /* APINSURLSession.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -216,6 +236,12 @@
 				49A059D31CF82623007A791F /* StageInfoCell.h */,
 				49A059D41CF82623007A791F /* StageInfoCell.m */,
 				49A059D51CF82623007A791F /* StageInfoCell.xib */,
+				49132E591D0550E600D28A62 /* LoadingCell.h */,
+				49132E5A1D0550E600D28A62 /* LoadingCell.m */,
+				49132E5B1D0550E600D28A62 /* LoadingCell.xib */,
+				49CFEEE01D073B5A00475AF4 /* StageInfoColCell.h */,
+				49CFEEE11D073B5A00475AF4 /* StageInfoColCell.m */,
+				49CFEEE21D073B5A00475AF4 /* StageInfoColCell.xib */,
 			);
 			name = "Custom View";
 			sourceTree = "<group>";
@@ -300,6 +326,9 @@
 				498DFC271D041E27006ADAC0 /* MenuViewController.h */,
 				498DFC281D041E27006ADAC0 /* MenuViewController.m */,
 				498DFC291D041E27006ADAC0 /* MenuViewController.xib */,
+				49CFEEDB1D072F6900475AF4 /* MainCollectionViewController.h */,
+				49CFEEDC1D072F6900475AF4 /* MainCollectionViewController.m */,
+				49CFEEDD1D072F6900475AF4 /* MainCollectionViewController.xib */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -420,7 +449,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49132E5D1D0550E600D28A62 /* LoadingCell.xib in Resources */,
 				49C4E9791CF7D90200B2A311 /* LaunchScreen.storyboard in Resources */,
+				49CFEEE41D073B5A00475AF4 /* StageInfoColCell.xib in Resources */,
+				49CFEEDF1D072F6900475AF4 /* MainCollectionViewController.xib in Resources */,
 				49A059BF1CF7DB13007A791F /* MainViewController.xib in Resources */,
 				49A059D71CF82623007A791F /* StageInfoCell.xib in Resources */,
 				4925E0171CFCC1A800591D1D /* StageDetailViewController.xib in Resources */,
@@ -500,21 +532,25 @@
 			files = (
 				4925E01A1CFCC33C00591D1D /* StageDetailViewModel.m in Sources */,
 				493776651D03D45F0055FA6F /* BaseViewModel.m in Sources */,
+				49CFEEDE1D072F6900475AF4 /* MainCollectionViewController.m in Sources */,
 				4925E0161CFCC1A800591D1D /* StageDetailViewController.m in Sources */,
-				49A059C91CF7E238007A791F /* APIUrlConnection.m in Sources */,
+				49132E5C1D0550E600D28A62 /* LoadingCell.m in Sources */,
 				498DFC2A1D041E27006ADAC0 /* MenuViewController.m in Sources */,
 				492A13C41D043E17006B8742 /* MenuItemModel.m in Sources */,
 				49A059D61CF82623007A791F /* StageInfoCell.m in Sources */,
+				49F5384C1D07FA8B00032004 /* MainColViewModel.m in Sources */,
 				49C4E9741CF7D90200B2A311 /* bmhh.xcdatamodeld in Sources */,
 				4925E00F1CFCB3FD00591D1D /* Utils.m in Sources */,
 				49A059CD1CF7F33F007A791F /* APIAFNetworking.m in Sources */,
 				49C4E96B1CF7D90200B2A311 /* AppDelegate.m in Sources */,
 				4925E0121CFCC07800591D1D /* StageDetailModel.m in Sources */,
 				492A13C11D043E02006B8742 /* MenuViewModel.m in Sources */,
+				49CFEEE71D0752E700475AF4 /* APINSURLSession.m in Sources */,
 				49A059D01CF821DE007A791F /* StageInfoModel.m in Sources */,
 				49C4E9681CF7D90200B2A311 /* main.m in Sources */,
 				49A059C31CF7DD5B007A791F /* MainViewModel.m in Sources */,
 				49A059BD1CF7DB01007A791F /* MainViewController.m in Sources */,
+				49CFEEE31D073B5A00475AF4 /* StageInfoColCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

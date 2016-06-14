@@ -12,10 +12,22 @@
 
 #define PAGE_SIZE       5
 
+typedef enum {
+    TypeLibAFNetworking,
+    TypeLibURLSession
+}TypeLibNetworking;
+
 @interface BaseViewModel : NSObject
--(void) getApiFromStringUrl : (NSString* _Nonnull)strUrl
+-(id _Nullable) initWithTypeAPIUsed : (TypeLibNetworking) typeLib;
+-(void) getApiWithHUDFromStringUrl : (NSString* _Nonnull)strUrl
                 withHeaders : (NSDictionary<NSString *,NSString *> * _Nullable)headers
               andParameters : (NSDictionary<NSString *,NSString *> * _Nullable)parameters
                thenCallBack : (ApiCallBack _Nonnull)callBack
              orNonReachable : (ProcessNonReachable _Nonnull)processNonReachable;
+-(void) getApiFromStringUrl : (NSString* _Nonnull)strUrl
+                       withHeaders : (NSDictionary<NSString *,NSString *> * _Nullable)headers
+                     andParameters : (NSDictionary<NSString *,NSString *> * _Nullable)parameters
+                      thenCallBack : (ApiCallBack _Nonnull)callBack
+                    orNonReachable : (ProcessNonReachable _Nonnull)processNonReachable;
+-(void) downloadImageFromStringUrl : (NSString * _Nonnull)strURl thenCallBack : (DataCallBack _Nonnull)callBack orNonReachable : (ProcessNonReachable _Nonnull)processNonReachable;
 @end

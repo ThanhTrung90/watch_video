@@ -14,13 +14,14 @@
 #import "URLCostant.h"
 #import "StageDetailViewController.h"
 #import "SWRevealViewController.h"
+#import "LoadingCell.h"
 @interface MainViewController()
 
 @end
 @implementation MainViewController
 /* Start variable*/
 static NSString *identifierCell = @"StageInfoCell";
-
+static NSString *loadingCell = @"LoadingCell";
 /* End variable*/
 
 -(void)viewDidLoad{
@@ -42,7 +43,7 @@ static NSString *identifierCell = @"StageInfoCell";
     [swRevealVC panGestureRecognizer];
     [swRevealVC tapGestureRecognizer];
     UIImage *imgMenu = [UIImage imageNamed:@"Menu-50.png"];
-    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:imgMenu style:UIBarButtonItemStyleDone target:swRevealVC action:@selector(revealToggle:)];
+    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:imgMenu style:UIBarButtonItemStylePlain target:swRevealVC action:@selector(revealToggle:)];
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
 }
@@ -79,16 +80,21 @@ static NSString *identifierCell = @"StageInfoCell";
     if (indexPath.section == _listStage.count) {
         if (_currentPage == -1) {
             _currentPage = 0;
+            [_mainViewModel addListStageFromPageNo:++_currentPage withHUD:YES];
+        } else {
+            [_mainViewModel addListStageFromPageNo:++_currentPage withHUD:NO];
         }
-        [_mainViewModel addListStageFromPageNo:++_currentPage];
+        
     }
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == _listStage.count) {
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LastStageInfoCell"];
-//        cell.textLabel.text = @"Loading ...";
-//        cell.textLabel.textColor = [UIColor redColor];
-//        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        LoadingCell *cell = [tableView dequeueReusableCellWithIdentifier:loadingCell];
+        if (cell == nil) {
+            NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:loadingCell owner:self options:nil];
+            cell = nibs[0];
+        }
+        [cell setHidden:YES];
         return cell;
     } else {
         StageInfoModel *stageInfo = [_listStage objectAtIndex:indexPath.section];
@@ -107,6 +113,16 @@ static NSString *identifierCell = @"StageInfoCell";
         } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
             [cell.imgStage setImage:[UIImage imageNamed:@"img_no_preview.jpg"]];
         }];
+//        [_mainViewModel downloadImageFromStringUrl:stageInfo.thumbImage
+//                                      thenCallBack:^(id  _Nonnull data) {
+//                                          UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:data]];
+//                                          dispatch_async(dispatch_get_main_queue(), ^{
+//                                              [cell.imgStage setImage:img];
+//                                          });
+//                                      }
+//                                    orNonReachable:^(NSString * _Nonnull message) {
+//                                        NSLog(@"Can't connect internet");
+//        }];
         return cell;
     }
 }

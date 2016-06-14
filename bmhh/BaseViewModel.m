@@ -8,21 +8,33 @@
 
 #import "BaseViewModel.h"
 #import "APIAFNetworking.h"
+#import "APINSURLSession.h"
 @interface BaseViewModel(){
     id<APIProtocol> api;
+    TypeLibNetworking typeLibNetWorking;
 }
 
 @end
 
 @implementation BaseViewModel
--(id) init {
+-(id)initWithTypeAPIUsed:(TypeLibNetworking)typeLib {
     self = [super init];
     if (self) {
-        api = [[APIAFNetworking alloc] init];
+        typeLibNetWorking = typeLib;
+        switch (typeLib) {
+            case TypeLibURLSession:
+                api = [[APINSURLSession alloc] initWithConfig:SessionConfigurationDefault];
+                break;
+            case TypeLibAFNetworking:
+            default:
+                api = [[APIAFNetworking alloc] init];
+                break;
+        }
     }
     return self;
 }
--(void)getApiFromStringUrl:(NSString *)strUrl withHeaders:(NSDictionary<NSString *,NSString *> *)headers andParameters : (NSDictionary<NSString *,NSString *> *)parameters thenCallBack:(ApiCallBack)callBack orNonReachable:(ProcessNonReachable)processNonReachable{
+
+-(void)getApiWithHUDFromStringUrl:(NSString *)strUrl withHeaders:(NSDictionary<NSString *,NSString *> *)headers andParameters : (NSDictionary<NSString *,NSString *> *)parameters thenCallBack:(ApiCallBack)callBack orNonReachable:(ProcessNonReachable)processNonReachable{
     UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
     [MBProgressHUD hideAllHUDsForView:window animated:YES];
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:window animated:YES];
@@ -33,9 +45,33 @@
                 andParameters:parameters
                 thenCallBack:callBack
           completionCallBack:^{
-              [HUD setHidden:YES];
+              dispatch_async(dispatch_get_main_queue(), ^{
+                  [HUD setHidden:YES];
+                  NSLog(@"Completion call back");
+              });
           }
               orNonReachable:processNonReachable];
 }
 
+-(void)getApiFromStringUrl:(NSString *)strUrl withHeaders:(NSDictionary<NSString *,NSString *> *)headers andParameters:(NSDictionary<NSString *,NSString *> *)parameters thenCallBack:(ApiCallBack)callBack orNonReachable:(ProcessNonReachable)processNonReachable{
+    [api getApiFromStringUrl:strUrl
+                 withHeaders:headers
+               andParameters:parameters
+                thenCallBack:callBack
+          completionCallBack:^{
+              NSLog(@"Completion call back");
+          }
+              orNonReachable:processNonReachable];
+}
+
+-(void)downloadImageFromStringUrl:(NSString *)strURl thenCallBack:(DataCallBack)callBack orNonReachable:(ProcessNonReachable)processNonReachable {
+    [api downloadImageFromStringUrl:strURl
+                       thenCallBack:callBack
+                 completionCallBack:^{
+                     NSLog(@"Complete download : %@",strURl);
+    
+                 }
+                     orNonReachable:processNonReachable
+     ];
+}
 @end

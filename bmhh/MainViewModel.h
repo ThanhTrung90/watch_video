@@ -14,5 +14,5 @@
 
 @interface MainViewModel : BaseViewModel
 -(id) initWithViewController : (MainViewController *) mainVC;
--(void) addListStageFromPageNo : (NSInteger) pageNo;
+-(void) addListStageFromPageNo : (NSInteger) pageNo withHUD : (BOOL) isDisplayHUD;
 @end

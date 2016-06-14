@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tn9-Ow-hYM">
-                        <rect key="frame" x="8" y="8" width="107" height="128"/>
+                        <rect key="frame" x="8" y="8" width="107" height="133"/>
                     </imageView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="BẠN MUỐN HẸN HÒ - Tập 10 | Đức Anh - Ái Loan | Hoàng Linh - Thanh Tâm | 12/01/2014" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MMg-2C-D4q">
                         <rect key="frame" x="125" y="8" width="187" height="89"/>
@@ -26,21 +26,34 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="45l-08-sz1">
-                        <rect key="frame" x="52" y="59" width="20" height="20"/>
+                        <rect key="frame" x="52" y="64" width="20" height="20"/>
                     </activityIndicatorView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="width" secondItem="tn9-Ow-hYM" secondAttribute="width" multiplier="3" id="HWw-Dn-QJc"/>
-                    <constraint firstItem="tn9-Ow-hYM" firstAttribute="leading" secondItem="45l-08-sz1" secondAttribute="centerX" multiplier="1.15" constant="-63" id="WFS-oz-3PI"/>
+                    <constraint firstAttribute="width" secondItem="tn9-Ow-hYM" secondAttribute="width" multiplier="3" id="HWw-Dn-QJc">
+                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
+                    </constraint>
+                    <constraint firstItem="tn9-Ow-hYM" firstAttribute="leading" secondItem="45l-08-sz1" secondAttribute="centerX" multiplier="1.15" constant="-63" id="WFS-oz-3PI">
+                        <variation key="heightClass=compact-widthClass=compact" constant="-53"/>
+                    </constraint>
                     <constraint firstAttribute="topMargin" secondItem="MMg-2C-D4q" secondAttribute="top" id="aSW-Mb-qiF"/>
                     <constraint firstAttribute="trailingMargin" secondItem="MMg-2C-D4q" secondAttribute="trailing" id="aj4-6h-SIf"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="tn9-Ow-hYM" secondAttribute="bottom" constant="5" id="b0H-Nm-TlS"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="tn9-Ow-hYM" secondAttribute="bottom" id="b0H-Nm-TlS"/>
                     <constraint firstItem="MMg-2C-D4q" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.6" id="cLM-nD-A1H"/>
                     <constraint firstAttribute="leadingMargin" secondItem="tn9-Ow-hYM" secondAttribute="leading" id="lRg-Rj-JJs"/>
                     <constraint firstItem="MMg-2C-D4q" firstAttribute="leading" secondItem="tn9-Ow-hYM" secondAttribute="trailing" constant="10" id="mnr-g4-Kzc"/>
                     <constraint firstAttribute="topMargin" secondItem="tn9-Ow-hYM" secondAttribute="top" id="sY6-w6-hzA"/>
                     <constraint firstItem="45l-08-sz1" firstAttribute="top" secondItem="tn9-Ow-hYM" secondAttribute="centerY" multiplier="1.85" constant="-74" id="zdk-tQ-4Wr"/>
                 </constraints>
+                <variation key="heightClass=compact-widthClass=compact">
+                    <mask key="subviews">
+                        <include reference="tn9-Ow-hYM"/>
+                    </mask>
+                    <mask key="constraints">
+                        <include reference="HWw-Dn-QJc"/>
+                        <include reference="WFS-oz-3PI"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="imgStage" destination="tn9-Ow-hYM" id="F6J-lp-Np1"/>

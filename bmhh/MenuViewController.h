@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @class MenuViewModel;
-@interface MenuViewController : UIViewController<UITableViewDataSource>
+@interface MenuViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) MenuViewModel *menuViewModel;
 @end

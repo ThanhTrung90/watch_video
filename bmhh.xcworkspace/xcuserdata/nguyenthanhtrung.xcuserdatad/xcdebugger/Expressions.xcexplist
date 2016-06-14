@@ -3,12 +3,37 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[MainCollectionViewController collectionView:cellForItemAtIndexPath:]:MainCollectionViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_listStage.count">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[MainViewController tableView:willDisplayCell:forRowAtIndexPath:]:MainViewController.m">
          <PersistentStrings>
             <PersistentString
                value = "indexPath.section ">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MainCollectionViewController collectionView:willDisplayCell:forItemAtIndexPath:]:MainCollectionViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_listStage.count">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.row ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MainColViewModel processResponseObject:]:MainColViewModel.m">
       </ContextState>
       <ContextState
          contextName = "__78-[APIAFNetworking getApiFromStringUrl:withHeader:thenCallBack:orNonReachable:]_block_invoke:APIAFNetworking.m">
@@ -59,13 +84,13 @@
          contextName = "__28-[APIAFNetworking listStage]_block_invoke_2:APIAFNetworking.m">
       </ContextState>
       <ContextState
+         contextName = "__28-[APIAFNetworking listStage]_block_invoke_3:APIAFNetworking.m">
+      </ContextState>
+      <ContextState
          contextName = "-[MainViewController tableView:cellForRowAtIndexPath:]:MainViewController.m">
       </ContextState>
       <ContextState
          contextName = "-[MainViewController numberOfSectionsInTableView:]:MainViewController.m">
-      </ContextState>
-      <ContextState
-         contextName = "__28-[APIAFNetworking listStage]_block_invoke_3:APIAFNetworking.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

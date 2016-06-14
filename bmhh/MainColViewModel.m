@@ -1,34 +1,29 @@
 //
-//  MainViewModel.m
+//  MainColViewModel.m
 //  bmhh
 //
-//  Created by Nguyễn Thành Trung on 5/27/16.
+//  Created by Nguyễn Thành Trung on 6/8/16.
 //  Copyright © 2016 joeteam90. All rights reserved.
 //
 
-#import "MainViewModel.h"
-#import "MainViewController.h"
-#import "APIAFNetworking.h"
-#import "StageInfoModel.h"
+#import "MainColViewModel.h"
+#import "MainCollectionViewController.h"
 #import "URLCostant.h"
+#import "StageInfoModel.h"
 #import "Utils.h"
-#import "MBProgressHUD.h"
-@interface MainViewModel()
-@property (weak, nonatomic) MainViewController *mainVC;
-@property (strong, nonatomic) id<APIProtocol> api;
+@interface MainColViewModel()
+@property (weak, nonatomic) MainCollectionViewController *mainColVC;
 @end
-@implementation MainViewModel
--(id)initWithViewController:(MainViewController *)mainVC {
-    self = [super initWithTypeAPIUsed:TypeLibAFNetworking];
+@implementation MainColViewModel
+-(id)initWithMainColViewController:(MainCollectionViewController *)mainColVC{
+    self = [super initWithTypeAPIUsed:TypeLibURLSession];
     if (self) {
-        _mainVC = mainVC;
-        _mainVC.mainViewModel = self;
-        _api = [[APIAFNetworking alloc] init];
+        _mainColVC = mainColVC;
+        _mainColVC.mainColViewModel = self;
     }
     return self;
 }
-
--(void)addListStageFromPageNo : (NSInteger) pageNo withHUD : (BOOL) isDisplayHUD{
+-(void)addListStageFromPageNo : (NSInteger) pageNo withHUD : (BOOL) isDisplayHUD {
     NSMutableArray *listAction = [[NSMutableArray alloc] init];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     [listAction addObject:cancelAction];
@@ -38,7 +33,7 @@
     [listAction addObject:tryAgainAction];
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
     [headers setObject:@"DCAC3003-5CEB-4631-8C1D-427DADEE1BC2" forKey:@"secret-key"];
-
+    
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:[NSString stringWithFormat:@"%d",(int)pageNo] forKey:@"CurrentPage"];
     [params setObject:[NSString stringWithFormat:@"%d",(int)PAGE_SIZE] forKey:@"pageSize"];
@@ -50,7 +45,7 @@
                                 [self processResponseObject:responseObject];
                             }
                           orNonReachable:^(NSString* message){
-                              [Utils createAlertForViewController:_mainVC withTitle:@"Lỗi" andMessage:message andListAction:listAction];
+                              [Utils createAlertForViewController:_mainColVC withTitle:@"Lỗi" andMessage:message andListAction:listAction];
                           }
          ];
     } else {
@@ -61,41 +56,37 @@
                          [self processResponseObject:responseObject];
                      }
                    orNonReachable:^(NSString * _Nonnull message) {
-                             [Utils createAlertForViewController:_mainVC withTitle:@"Lỗi" andMessage:message andListAction:listAction];
+                       [Utils createAlertForViewController:_mainColVC withTitle:@"Lỗi" andMessage:message andListAction:listAction];
                    }
          ];
     }
 }
 
--(void) processResponseObject : (id _Nonnull) responseObject{
-    NSMutableArray *mutableArrStage = [[NSMutableArray alloc] init];
-    NSDictionary *response = responseObject;
-    NSString *strTotalStage = response[@"TotalRecord"];
-    if (strTotalStage) {
-        NSInteger totalRecord= [strTotalStage integerValue];
-        if (totalRecord%PAGE_SIZE == 0) {
-            _mainVC.totalPage = totalRecord/PAGE_SIZE;
-        } else {
-            _mainVC.totalPage = totalRecord/PAGE_SIZE + 1;
-        }
+-(void) processResponseObject : (id _Nonnull) responseObject {
+    NSDictionary *dict = (NSDictionary *) responseObject;
+    NSString *strTotalRecord = dict[@"TotalRecord"];
+    NSInteger totalRecord = [strTotalRecord integerValue];
+    if (totalRecord%PAGE_SIZE == 0) {
+        _mainColVC.maxPage = totalRecord/PAGE_SIZE;
+    } else {
+        _mainColVC.maxPage = totalRecord/PAGE_SIZE + 1;
     }
-    NSArray *listStage = response[@"Records"];
-    for (int i = 0; i < listStage.count; i++) {
-        NSDictionary *dict = listStage[i];
-        StageInfoModel *stage = [[StageInfoModel alloc] initWithDictionary:dict];
-        if (stage) {
-            [mutableArrStage addObject:stage];
-        }
-    }
-    if (mutableArrStage.count > 0) {
-        [_mainVC.listStage addObjectsFromArray:mutableArrStage];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (_mainVC.tblStageInfo.hidden) {
-                _mainVC.tblStageInfo.hidden = NO;
+    NSMutableArray *mubArrStage = [[NSMutableArray alloc] init];
+    NSArray *arrStages = dict[@"Records"];
+    if (arrStages && arrStages.count > 0) {
+        for (int i = 0; i <arrStages.count; i++) {
+            NSDictionary *dictStage = arrStages[i];
+            StageInfoModel *stageInfo = [[StageInfoModel alloc] initWithDictionary:dictStage];
+            if (stageInfo) {
+                [mubArrStage addObject:stageInfo];
             }
-            [_mainVC.tblStageInfo reloadData];
+        }
+    }
+    if (mubArrStage.count > 0) {
+        [_mainColVC.listStage addObjectsFromArray:mubArrStage];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_mainColVC.cvListStage reloadData];
         });
     }
-
 }
 @end

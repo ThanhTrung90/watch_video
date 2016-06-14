@@ -18,7 +18,7 @@
 @end
 @implementation StageDetailViewModel
 -(id)initWithStageDetailViewController:(StageDetailViewController *)stageDetailVC {
-    self = [super init];
+    self = [super initWithTypeAPIUsed:TypeLibAFNetworking];
     if (self) {
         _stageDetailVC = stageDetailVC;
         _stageDetailVC.stageDetailVM = self;
@@ -35,13 +35,14 @@
     [listAction addObject:tryAgainAction];
     
     NSString *url = [NSString stringWithFormat:RETRIEVE_STAGE,stageId];
-    [self getApiFromStringUrl:url
+    [self getApiWithHUDFromStringUrl:url
                  withHeaders:nil
                 andParameters:nil
                  thenCallBack:^(id  _Nonnull responseObject) {
                      NSDictionary *dict = responseObject;
                      StageDetailModel *detailModel = [[StageDetailModel alloc] initWithDictionary:dict];
                      if (detailModel) {
+                         _stageDetailVC.title = detailModel.name;
                          _stageDetailVC.txvStageName.text = detailModel.name;
                          if (detailModel.youtubeLink) {
                              NSDictionary *playerVars = @{
