@@ -3,6 +3,20 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[MainViewController numberOfSectionsInTableView:]:MainViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[MainViewController tableView:willDisplayCell:forRowAtIndexPath:]:MainViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.section ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__26-[MainViewModel listStage]_block_invoke.31:MainViewModel.m">
+      </ContextState>
+      <ContextState
          contextName = "-[MainCollectionViewController collectionView:cellForItemAtIndexPath:]:MainCollectionViewController.m">
          <PersistentStrings>
             <PersistentString
@@ -14,21 +28,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[MainViewController tableView:willDisplayCell:forRowAtIndexPath:]:MainViewController.m">
+         contextName = "__50-[StageDetailViewModel retrieveStageDetailWithId:]_block_invoke_2:StageDetailViewModel.m">
          <PersistentStrings>
             <PersistentString
-               value = "indexPath.section ">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[MainCollectionViewController collectionView:willDisplayCell:forItemAtIndexPath:]:MainCollectionViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "_listStage.count">
-            </PersistentString>
-            <PersistentString
-               value = "indexPath.row ">
+               value = "_stageDetailVC.navigationItem.titleView.bounds">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -42,6 +45,23 @@
                value = "strUrl">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate checkOrientation:]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "nav.presentingViewController">
+            </PersistentString>
+            <PersistentString
+               value = "nav.topViewController">
+            </PersistentString>
+            <PersistentString
+               value = "nav.viewControllers">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__51-[MainColViewModel addListStageFromPageNo:withHUD:]_block_invoke.45:MainColViewModel.m">
       </ContextState>
       <ContextState
          contextName = "__40-[MainViewModel addListStageFromPageNo:]_block_invoke.40:MainViewModel.m">
@@ -64,6 +84,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "__28-[APIAFNetworking listStage]_block_invoke:APIAFNetworking.m">
+      </ContextState>
+      <ContextState
          contextName = "-[APIUrlConnection listStage]:APIUrlConnection.m">
          <PersistentStrings>
             <PersistentString
@@ -72,13 +95,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "__28-[APIAFNetworking listStage]_block_invoke:APIAFNetworking.m">
+         contextName = "-[MainCollectionViewController collectionView:willDisplayCell:forItemAtIndexPath:]:MainCollectionViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_listStage.count">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.row ">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[StageDetailViewController viewDidLoad]:StageDetailViewController.m">
-      </ContextState>
-      <ContextState
-         contextName = "__26-[MainViewModel listStage]_block_invoke.31:MainViewModel.m">
       </ContextState>
       <ContextState
          contextName = "__28-[APIAFNetworking listStage]_block_invoke_2:APIAFNetworking.m">
@@ -87,10 +115,15 @@
          contextName = "__28-[APIAFNetworking listStage]_block_invoke_3:APIAFNetworking.m">
       </ContextState>
       <ContextState
-         contextName = "-[MainViewController tableView:cellForRowAtIndexPath:]:MainViewController.m">
+         contextName = "-[MainColViewModel addListStageFromPageNo:withHUD:]:MainColViewModel.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "IMPRESSIVE_STAGE">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[MainViewController numberOfSectionsInTableView:]:MainViewController.m">
+         contextName = "-[MainViewController tableView:cellForRowAtIndexPath:]:MainViewController.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

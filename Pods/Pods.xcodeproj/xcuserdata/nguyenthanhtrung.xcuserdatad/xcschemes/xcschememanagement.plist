@@ -9,7 +9,37 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>CarbonKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKCoreKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKLoginKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKShareKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MarqueeLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -19,7 +49,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SWRevealViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>libwebp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,7 +72,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>36330BCB23C31B951B8979ABA9D4E91A</key>
+		<key>346F523B12D2B7E737C7A29243DF6E36</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>43252D7D94378E2E70CED8BC9A577999</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>43FE871D4590DE54D05DE127CD6BBA2D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E286D373D75563CE26E479A68203892</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>52968F4C95A7ABD7C6257C358821563D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6B6975761A09A335BC0471B5C0301736</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7E59002C9207FA2A37F7E06BE49BCB8E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7E61C9A8C176278C6C99C2C59E9C152E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,12 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>99A3DF02EFD9F8633A4E660064DB79A3</key>
+		<key>C43DEF8E5BFEC36D943258BA3F21834D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F27C914A431BC4A5F45DDD59FADFFAE4</key>
+		<key>C54FCF1A75E47826F8EC2C3FE218908D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3CE383BCD190DFD1B312E3920C7B769</key>
 		<dict>
 			<key>primary</key>
 			<true/>

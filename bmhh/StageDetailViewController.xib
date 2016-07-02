@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StageDetailViewController">
             <connections>
-                <outlet property="txvStageName" destination="EsZ-to-LBu" id="a0F-Ma-1kn"/>
+                <outlet property="mainStackView" destination="HXc-PD-03y" id="ncD-Yo-QFT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="ytPlayerView" destination="g43-Nq-r7V" id="iGO-4g-M2H"/>
             </connections>
@@ -18,27 +16,68 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g43-Nq-r7V" customClass="YTPlayerView">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="338"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EsZ-to-LBu">
-                    <rect key="frame" x="0.0" y="358" width="600" height="242"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HXc-PD-03y">
+                    <rect key="frame" x="5" y="5" width="590" height="590"/>
+                    <subviews>
+                        <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="g43-Nq-r7V" customClass="YTPlayerView">
+                            <rect key="frame" x="0.0" y="0.0" width="590" height="493"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMR-U0-c1O">
+                            <rect key="frame" x="0.0" y="513" width="590" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Sxv-DK-SNz">
+                            <rect key="frame" x="50" y="557" width="490" height="33"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ON6-zl-XXZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="235" height="33"/>
+                                    <color key="backgroundColor" red="0.26028609470000003" green="0.46792292060000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="Chia sẻ">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="shareToFacebook:" destination="-1" eventType="touchUpInside" id="Gmo-2X-HBd"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4o-30-j1k">
+                                    <rect key="frame" x="255" y="0.0" width="235" height="33"/>
+                                    <color key="backgroundColor" red="0.26028609470000003" green="0.46792292060000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" title="Gửi">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="sendToMessageFB:" destination="-1" eventType="touchUpInside" id="klw-nN-KU0"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="u4o-30-j1k" firstAttribute="width" secondItem="ON6-zl-XXZ" secondAttribute="width" id="hrV-Zh-18c"/>
+                                <constraint firstItem="u4o-30-j1k" firstAttribute="height" secondItem="ON6-zl-XXZ" secondAttribute="height" id="yeo-i6-tnu"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="g43-Nq-r7V" firstAttribute="leading" secondItem="HXc-PD-03y" secondAttribute="leading" id="GVV-CP-Q5l"/>
+                        <constraint firstAttribute="trailing" secondItem="Sxv-DK-SNz" secondAttribute="trailing" constant="50" id="LD3-5b-Vwa"/>
+                        <constraint firstItem="RMR-U0-c1O" firstAttribute="leading" secondItem="HXc-PD-03y" secondAttribute="leading" id="Law-OK-xrb"/>
+                        <constraint firstItem="Sxv-DK-SNz" firstAttribute="leading" secondItem="HXc-PD-03y" secondAttribute="leading" constant="50" id="Vgs-lf-rsL"/>
+                        <constraint firstAttribute="trailing" secondItem="RMR-U0-c1O" secondAttribute="trailing" id="aXn-Vr-PqJ"/>
+                        <constraint firstAttribute="trailing" secondItem="g43-Nq-r7V" secondAttribute="trailing" id="hzZ-z4-qN5"/>
+                    </constraints>
+                    <variation key="heightClass=compact-widthClass=compact" spacing="5"/>
+                    <variation key="heightClass=compact-widthClass=regular" spacing="5"/>
+                </stackView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="g43-Nq-r7V" secondAttribute="trailing" id="3A1-29-q28"/>
-                <constraint firstItem="EsZ-to-LBu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6gZ-EF-ssb"/>
-                <constraint firstItem="EsZ-to-LBu" firstAttribute="top" secondItem="g43-Nq-r7V" secondAttribute="bottom" constant="20" id="7gd-tP-Wlq"/>
-                <constraint firstItem="g43-Nq-r7V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Pfq-OA-0jE"/>
-                <constraint firstItem="g43-Nq-r7V" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="9/16" id="Q2v-QE-9qj"/>
-                <constraint firstItem="g43-Nq-r7V" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TPU-Iw-avf"/>
-                <constraint firstAttribute="bottom" secondItem="EsZ-to-LBu" secondAttribute="bottom" id="oeo-FE-eH1"/>
-                <constraint firstAttribute="trailing" secondItem="EsZ-to-LBu" secondAttribute="trailing" id="qKz-5p-Cgy"/>
+                <constraint firstAttribute="bottom" secondItem="HXc-PD-03y" secondAttribute="bottom" constant="5" id="Lsu-2c-9uI"/>
+                <constraint firstAttribute="trailing" secondItem="HXc-PD-03y" secondAttribute="trailing" constant="5" id="QEx-9r-m5U"/>
+                <constraint firstItem="HXc-PD-03y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="5" id="Udz-fw-XyE"/>
+                <constraint firstItem="HXc-PD-03y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="u96-L6-j4h"/>
             </constraints>
             <point key="canvasLocation" x="148" y="287"/>
         </view>

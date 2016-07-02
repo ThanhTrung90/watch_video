@@ -22,5 +22,6 @@
 /* End server*/
 
 #define LIST_STAGE                                           APPEND(SERVER_API,@"stages/search")
+#define IMPRESSIVE_STAGE                                     APPEND(SERVER_API,@"stages/byfeature")
 #define RETRIEVE_STAGE                                       APPEND(SERVER_API,@"Stages/%@")
 #endif /* URLCostant_h */

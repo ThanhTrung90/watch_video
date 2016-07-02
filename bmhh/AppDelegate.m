@@ -10,6 +10,9 @@
 #import "MainViewController.h"
 #import "MenuViewController.h"
 #import "SWRevealViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "BMHHViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -18,21 +21,50 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //Facebook SDK
+    [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     //Main view
-    MainViewController *mainVC = [[MainViewController alloc] init];
-    mainVC.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:mainVC];
-    
-    MenuViewController *menuVC = [[MenuViewController alloc] init];
-    
-    SWRevealViewController *swRevealVC = [[SWRevealViewController alloc] initWithRearViewController:menuVC frontViewController:mainNav];
-    
+//    MainViewController *mainVC = [[MainViewController alloc] init];
+//    mainVC.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+//    UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:mainVC];
+//    
+//    MenuViewController *menuVC = [[MenuViewController alloc] init];
+//    
+//    SWRevealViewController *swRevealVC = [[SWRevealViewController alloc] initWithRearViewController:menuVC frontViewController:mainNav];
+    BMHHViewController *bmhhVC = [[BMHHViewController alloc] init];
+    bmhhVC.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    bmhhVC.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Rate" style:UIBarButtonItemStyleDone target:self action:@selector(rateApp)];
+    UINavigationController *bmhhNav = [[UINavigationController alloc] initWithRootViewController:bmhhVC];
     self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = swRevealVC;
+    self.window.rootViewController = bmhhNav;
     [self.window makeKeyAndVisible];
     return YES;
 }
+#pragma mark - rate app
+-(void) rateApp {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id1126385805"]];
+}
+#pragma mark - set orientation
+-(UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    return [self checkOrientation:window.rootViewController];
+}
 
+-(UIInterfaceOrientationMask) checkOrientation : (UIViewController *) rootViewController {
+    if (rootViewController == nil) {
+        return UIInterfaceOrientationMaskAll;
+    }
+    if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *nav = (UINavigationController *)rootViewController;
+        if ([nav.topViewController isKindOfClass:[BMHHViewController class]]) {
+            return UIInterfaceOrientationMaskPortrait;
+        } else {
+            return UIInterfaceOrientationMaskAll;
+        }
+    } else {
+        return UIInterfaceOrientationMaskAll;
+    }
+}
+#pragma mark - state of app
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -49,6 +81,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -56,7 +89,14 @@
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
 }
-
+#pragma mark - For Facebook SDK
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+    BOOL handle = [[FBSDKApplicationDelegate sharedInstance] application:app
+                                                                 openURL:url
+                                                       sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                                              annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+    return handle;
+}
 #pragma mark - Core Data stack
 
 @synthesize managedObjectContext = _managedObjectContext;

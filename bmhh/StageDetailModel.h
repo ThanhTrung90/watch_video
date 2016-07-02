@@ -10,6 +10,7 @@
 
 @interface StageDetailModel : NSObject
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *realYoutubeLink;
 @property (strong, nonatomic) NSString *youtubeLink;
 -(id) initWithDictionary : (NSDictionary *)dict;
 @end

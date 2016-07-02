@@ -40,6 +40,8 @@
 		49CFEEE31D073B5A00475AF4 /* StageInfoColCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CFEEE11D073B5A00475AF4 /* StageInfoColCell.m */; };
 		49CFEEE41D073B5A00475AF4 /* StageInfoColCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CFEEE21D073B5A00475AF4 /* StageInfoColCell.xib */; };
 		49CFEEE71D0752E700475AF4 /* APINSURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CFEEE61D0752E700475AF4 /* APINSURLSession.m */; };
+		49F16DEF1D2681BE00E4D58F /* BMHHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F16DED1D2681BE00E4D58F /* BMHHViewController.m */; };
+		49F16DF01D2681BE00E4D58F /* BMHHViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F16DEE1D2681BE00E4D58F /* BMHHViewController.xib */; };
 		49F5384C1D07FA8B00032004 /* MainColViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F5384B1D07FA8B00032004 /* MainColViewModel.m */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +122,9 @@
 		49CFEEE21D073B5A00475AF4 /* StageInfoColCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StageInfoColCell.xib; sourceTree = "<group>"; };
 		49CFEEE51D0752E700475AF4 /* APINSURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APINSURLSession.h; sourceTree = "<group>"; };
 		49CFEEE61D0752E700475AF4 /* APINSURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APINSURLSession.m; sourceTree = "<group>"; };
+		49F16DEC1D2681BE00E4D58F /* BMHHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHHViewController.h; sourceTree = "<group>"; };
+		49F16DED1D2681BE00E4D58F /* BMHHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHHViewController.m; sourceTree = "<group>"; };
+		49F16DEE1D2681BE00E4D58F /* BMHHViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMHHViewController.xib; sourceTree = "<group>"; };
 		49F5384A1D07FA8B00032004 /* MainColViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainColViewModel.h; sourceTree = "<group>"; };
 		49F5384B1D07FA8B00032004 /* MainColViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainColViewModel.m; sourceTree = "<group>"; };
 		4C850E8A715547D130DA8842 /* libPods-bmhh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bmhh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,6 +334,9 @@
 				49CFEEDB1D072F6900475AF4 /* MainCollectionViewController.h */,
 				49CFEEDC1D072F6900475AF4 /* MainCollectionViewController.m */,
 				49CFEEDD1D072F6900475AF4 /* MainCollectionViewController.xib */,
+				49F16DEC1D2681BE00E4D58F /* BMHHViewController.h */,
+				49F16DED1D2681BE00E4D58F /* BMHHViewController.m */,
+				49F16DEE1D2681BE00E4D58F /* BMHHViewController.xib */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -412,7 +420,7 @@
 				TargetAttributes = {
 					49C4E9621CF7D90200B2A311 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 8XV367B9R4;
+						DevelopmentTeam = DXM9U37WE4;
 					};
 					49C4E97E1CF7D90200B2A311 = {
 						CreatedOnToolsVersion = 7.3;
@@ -452,6 +460,7 @@
 				49132E5D1D0550E600D28A62 /* LoadingCell.xib in Resources */,
 				49C4E9791CF7D90200B2A311 /* LaunchScreen.storyboard in Resources */,
 				49CFEEE41D073B5A00475AF4 /* StageInfoColCell.xib in Resources */,
+				49F16DF01D2681BE00E4D58F /* BMHHViewController.xib in Resources */,
 				49CFEEDF1D072F6900475AF4 /* MainCollectionViewController.xib in Resources */,
 				49A059BF1CF7DB13007A791F /* MainViewController.xib in Resources */,
 				49A059D71CF82623007A791F /* StageInfoCell.xib in Resources */,
@@ -549,6 +558,7 @@
 				49A059D01CF821DE007A791F /* StageInfoModel.m in Sources */,
 				49C4E9681CF7D90200B2A311 /* main.m in Sources */,
 				49A059C31CF7DD5B007A791F /* MainViewModel.m in Sources */,
+				49F16DEF1D2681BE00E4D58F /* BMHHViewController.m in Sources */,
 				49A059BD1CF7DB01007A791F /* MainViewController.m in Sources */,
 				49CFEEE31D073B5A00475AF4 /* StageInfoColCell.m in Sources */,
 			);
@@ -689,8 +699,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = bmhh/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.joeteam90.bmhh;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joeteam90.BanMuonHenHo2016;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -704,8 +715,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = bmhh/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.joeteam90.bmhh;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joeteam90.BanMuonHenHo2016;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

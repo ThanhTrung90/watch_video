@@ -14,6 +14,7 @@
     if (self) {
         _name = [dict objectForKey:@"Name"] == nil ? @"" : [dict objectForKey:@"Name"];
         NSString *link = [dict objectForKey:@"YoutubeLink"] == nil ? @"" : [dict objectForKey:@"YoutubeLink"];
+        _realYoutubeLink = link;
         NSArray *arr = [link componentsSeparatedByString:@"/"];
         if (arr && arr.count > 0) {
             _youtubeLink = arr[arr.count - 1];

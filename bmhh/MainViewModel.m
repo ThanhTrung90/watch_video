@@ -41,7 +41,7 @@
 
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:[NSString stringWithFormat:@"%d",(int)pageNo] forKey:@"CurrentPage"];
-    [params setObject:[NSString stringWithFormat:@"%d",(int)PAGE_SIZE] forKey:@"pageSize"];
+    [params setObject:[NSString stringWithFormat:@"%d",(int)BMHH_PAGE_SIZE] forKey:@"pageSize"];
     if (isDisplayHUD) {
         [self getApiWithHUDFromStringUrl:LIST_STAGE
                              withHeaders:headers
@@ -73,10 +73,10 @@
     NSString *strTotalStage = response[@"TotalRecord"];
     if (strTotalStage) {
         NSInteger totalRecord= [strTotalStage integerValue];
-        if (totalRecord%PAGE_SIZE == 0) {
-            _mainVC.totalPage = totalRecord/PAGE_SIZE;
+        if (totalRecord%BMHH_PAGE_SIZE == 0) {
+            _mainVC.totalPage = totalRecord/BMHH_PAGE_SIZE;
         } else {
-            _mainVC.totalPage = totalRecord/PAGE_SIZE + 1;
+            _mainVC.totalPage = totalRecord/BMHH_PAGE_SIZE + 1;
         }
     }
     NSArray *listStage = response[@"Records"];

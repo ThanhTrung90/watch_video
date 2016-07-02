@@ -12,4 +12,6 @@
 @interface StageDetailViewModel : BaseViewModel
 -(id) initWithStageDetailViewController : (StageDetailViewController *)stageDetailVC;
 -(void) retrieveStageDetailWithId : (NSString *)stageId;
+-(void) bmhhShareToFB;
+-(void) bmhhSendToMessageFB;
 @end

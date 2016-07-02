@@ -9,6 +9,7 @@
 #import "StageDetailViewController.h"
 #import "StageDetailViewModel.h"
 #import "SWRevealViewController.h"
+
 @interface StageDetailViewController ()
 
 @end
@@ -22,7 +23,6 @@
         [_stageDetailVM retrieveStageDetailWithId:_stageId];
     }
     
-    self.title = @"Detail";
     self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
@@ -34,5 +34,11 @@
 //retrieve data
 -(void)initializeStageWithId:(NSString *)stageId {
     _stageId = stageId;
+}
+- (IBAction)shareToFacebook:(id)sender {
+    [_stageDetailVM bmhhShareToFB];
+}
+- (IBAction)sendToMessageFB:(id)sender {
+    [_stageDetailVM bmhhSendToMessageFB];
 }
 @end

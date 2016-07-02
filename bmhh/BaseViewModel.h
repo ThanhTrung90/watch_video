@@ -10,7 +10,7 @@
 #import "APIProtocol.h"
 #import "MBProgressHUD.h"
 
-#define PAGE_SIZE       5
+#define BMHH_PAGE_SIZE       10
 
 typedef enum {
     TypeLibAFNetworking,

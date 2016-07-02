@@ -14,19 +14,77 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Bolts (1.7.0):
+    - Bolts/AppLinks (= 1.7.0)
+    - Bolts/Tasks (= 1.7.0)
+  - Bolts/AppLinks (1.7.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.7.0)
+  - CarbonKit (2.1.8)
+  - FBSDKCoreKit (4.13.1):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.13.1):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.13.1):
+    - FBSDKCoreKit
+  - libwebp (0.5.0):
+    - libwebp/core (= 0.5.0)
+    - libwebp/dec (= 0.5.0)
+    - libwebp/demux (= 0.5.0)
+    - libwebp/dsp (= 0.5.0)
+    - libwebp/enc (= 0.5.0)
+    - libwebp/mux (= 0.5.0)
+    - libwebp/utils (= 0.5.0)
+    - libwebp/webp (= 0.5.0)
+  - libwebp/core (0.5.0):
+    - libwebp/webp
+  - libwebp/dec (0.5.0):
+    - libwebp/core
+  - libwebp/demux (0.5.0):
+    - libwebp/core
+  - libwebp/dsp (0.5.0):
+    - libwebp/core
+  - libwebp/enc (0.5.0):
+    - libwebp/core
+  - libwebp/mux (0.5.0):
+    - libwebp/core
+  - libwebp/utils (0.5.0):
+    - libwebp/core
+  - libwebp/webp (0.5.0)
+  - MarqueeLabel (2.7.5):
+    - MarqueeLabel/ObjC (= 2.7.5)
+  - MarqueeLabel/ObjC (2.7.5)
   - MBProgressHUD (0.9.2)
+  - SDWebImage/Core (3.8.1)
+  - SDWebImage/WebP (3.8.1):
+    - libwebp
+    - SDWebImage/Core
   - SWRevealViewController (2.3.0)
   - youtube-ios-player-helper (0.1.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - CarbonKit (~> 2.1)
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
+  - MarqueeLabel
   - MBProgressHUD (~> 0.9.2)
+  - SDWebImage/WebP
   - SWRevealViewController (~> 2.3)
   - youtube-ios-player-helper (~> 0.1.4)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  CarbonKit: 95d78a09889cc05e36537dd08ec5d73dd55edba4
+  FBSDKCoreKit: 2807fe0da2ddb49a1469da6d6ff597f99912980f
+  FBSDKLoginKit: 6d350cb6a22d6956e9d078885de6ee8a0ebc51b4
+  FBSDKShareKit: c9438df7573b33780ac8c3451201c5ebb260ffca
+  libwebp: 68ba2001ba6806ee52837ebd77a551a0b6567e4e
+  MarqueeLabel: bd476f1a91e4414a6aec4ea4096a9979e8c8c2ad
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 

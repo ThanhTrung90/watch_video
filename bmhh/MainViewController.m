@@ -15,6 +15,7 @@
 #import "StageDetailViewController.h"
 #import "SWRevealViewController.h"
 #import "LoadingCell.h"
+
 @interface MainViewController()
 
 @end
@@ -36,17 +37,18 @@ static NSString *loadingCell = @"LoadingCell";
     _totalPage = 0;
     _tblStageInfo.hidden = YES;
     
-    self.title = @"Bạn muốn hẹn hò";
+    //self.title = @"Bạn muốn hẹn hò";
     self.edgesForExtendedLayout = UIRectEdgeNone;
     //For SWRevealViewController
-    SWRevealViewController *swRevealVC = [self revealViewController];
-    [swRevealVC panGestureRecognizer];
-    [swRevealVC tapGestureRecognizer];
-    UIImage *imgMenu = [UIImage imageNamed:@"Menu-50.png"];
-    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:imgMenu style:UIBarButtonItemStylePlain target:swRevealVC action:@selector(revealToggle:)];
-    
-    self.navigationItem.leftBarButtonItem = revealButtonItem;
+//    SWRevealViewController *swRevealVC = [self revealViewController];
+//    [swRevealVC panGestureRecognizer];
+//    [swRevealVC tapGestureRecognizer];
+//    UIImage *imgMenu = [UIImage imageNamed:@"Menu-50.png"];
+//    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:imgMenu style:UIBarButtonItemStylePlain target:swRevealVC action:@selector(revealToggle:)];
+//    
+//    self.navigationItem.leftBarButtonItem = revealButtonItem;
 }
+
 #pragma mark - UITableViewDelegate
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == _listStage.count) {

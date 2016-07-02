@@ -35,10 +35,11 @@
     [headers setObject:@"DCAC3003-5CEB-4631-8C1D-427DADEE1BC2" forKey:@"secret-key"];
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    [params setObject:[NSString stringWithFormat:@"%d",(int)pageNo] forKey:@"CurrentPage"];
-    [params setObject:[NSString stringWithFormat:@"%d",(int)PAGE_SIZE] forKey:@"pageSize"];
+    [params setObject:@"an-tuong" forKey:@"code"];
+    [params setObject:[NSString stringWithFormat:@"%d",(int)pageNo] forKey:@"pageNo"];
+    [params setObject:[NSString stringWithFormat:@"%d",(int)BMHH_PAGE_SIZE] forKey:@"pageSize"];
     if (isDisplayHUD) {
-        [self getApiWithHUDFromStringUrl:LIST_STAGE
+        [self getApiWithHUDFromStringUrl:IMPRESSIVE_STAGE
                              withHeaders:headers
                            andParameters:params
                             thenCallBack:^(id _Nonnull responseObject){
@@ -49,7 +50,7 @@
                           }
          ];
     } else {
-        [self getApiFromStringUrl:LIST_STAGE
+        [self getApiFromStringUrl:IMPRESSIVE_STAGE
                       withHeaders:headers
                     andParameters:params
                      thenCallBack:^(id  _Nonnull responseObject) {
@@ -66,10 +67,10 @@
     NSDictionary *dict = (NSDictionary *) responseObject;
     NSString *strTotalRecord = dict[@"TotalRecord"];
     NSInteger totalRecord = [strTotalRecord integerValue];
-    if (totalRecord%PAGE_SIZE == 0) {
-        _mainColVC.maxPage = totalRecord/PAGE_SIZE;
+    if (totalRecord%BMHH_PAGE_SIZE == 0) {
+        _mainColVC.maxPage = totalRecord/BMHH_PAGE_SIZE;
     } else {
-        _mainColVC.maxPage = totalRecord/PAGE_SIZE + 1;
+        _mainColVC.maxPage = totalRecord/BMHH_PAGE_SIZE + 1;
     }
     NSMutableArray *mubArrStage = [[NSMutableArray alloc] init];
     NSArray *arrStages = dict[@"Records"];
