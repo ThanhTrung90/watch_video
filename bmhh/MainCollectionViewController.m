@@ -12,8 +12,8 @@
 #import "MainColViewModel.h"
 #import "StageInfoModel.h"
 #import "StageDetailViewController.h"
-//#import "UIImageView+AFNetworking.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+AFNetworking.h"
+//#import <SDWebImage/UIImageView+WebCache.h>
 #import "URLCostant.h"
 @interface MainCollectionViewController ()
 
@@ -90,17 +90,17 @@
     } else {
         cell.hidden = NO;
         StageInfoModel *stageInfo = [_listStage objectAtIndex:indexPath.row];
-//        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:stageInfo.thumbImage] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:REQUEST_TIMEOUT];
-//        [cell.imgStage setImageWithURLRequest:urlRequest
-//                             placeholderImage:[UIImage imageNamed:@"img_no_preview.jpg"]
-//                                      success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
-//                                          [cell.imgStage setImage:image];
-//                                          [cell.spin stopAnimating];
-//                                          cell.spin.hidden = YES;
-//                                      }
-//                                      failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-//                                          [cell.imgStage setImage:[UIImage imageNamed:@"img_no_preview.jpg"]];
-//                                      }];
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:stageInfo.thumbImage] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:REQUEST_TIMEOUT];
+        [cell.imgStage setImageWithURLRequest:urlRequest
+                             placeholderImage:[UIImage imageNamed:@"img_no_preview.jpg"]
+                                      success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+                                          [cell.imgStage setImage:image];
+                                          [cell.spin stopAnimating];
+                                          cell.spin.hidden = YES;
+                                      }
+                                      failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                                          [cell.imgStage setImage:[UIImage imageNamed:@"img_no_preview.jpg"]];
+                                      }];
         
 //        if (stageInfo && stageInfo.thumbImage) {
 //            [_mainColViewModel downloadImageFromStringUrl:stageInfo.thumbImage thenCallBack:^(id  _Nonnull data) {
@@ -116,21 +116,22 @@
 //                });
 //            }];
 //        }
-        SDWebImageManager *imageManager = [SDWebImageManager sharedManager];
-        [imageManager downloadImageWithURL:[NSURL URLWithString:stageInfo.thumbImage]
-                                   options:0
-                                  progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                                      //Progressing
-                                  }
-                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-                                     if (image && error == nil) {
-                                         [cell.imgStage setImage:image];
-                                         [cell.spin stopAnimating];
-                                         cell.spin.hidden = YES;
-                                     } else {
-                                         cell.spin.hidden = YES;
-                                     }
-                                 }];
+        
+//        SDWebImageManager *imageManager = [SDWebImageManager sharedManager];
+//        [imageManager downloadImageWithURL:[NSURL URLWithString:stageInfo.thumbImage]
+//                                   options:0
+//                                  progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+//                                      //Progressing
+//                                  }
+//                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+//                                     if (image && error == nil) {
+//                                         [cell.imgStage setImage:image];
+//                                         [cell.spin stopAnimating];
+//                                         cell.spin.hidden = YES;
+//                                     } else {
+//                                         cell.spin.hidden = YES;
+//                                     }
+//                                 }];
     }
     return cell;
 }

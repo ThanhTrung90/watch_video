@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Bạn muốn hẹn hò";
+    self.title = @"Watch Video";
     items = @[@"Tất cả", @"Ấn tượng"];
     carbonTabSwipeNavigation = [[CarbonTabSwipeNavigation alloc] initWithItems:items delegate:self];
     [carbonTabSwipeNavigation insertIntoRootViewController:self];

@@ -17,7 +17,7 @@
 /* End function appending*/
 
 /* Start server*/
-#define SERVER                                               @"http://services.besite.tk"
+#define SERVER                                               @"google.com"
 #define SERVER_API                                           APPEND(SERVER,@"/api/")
 /* End server*/
 

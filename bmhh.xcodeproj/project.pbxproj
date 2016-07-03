@@ -19,6 +19,7 @@
 		492A13C11D043E02006B8742 /* MenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 492A13C01D043E02006B8742 /* MenuViewModel.m */; };
 		492A13C41D043E17006B8742 /* MenuItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 492A13C31D043E17006B8742 /* MenuItemModel.m */; };
 		493776651D03D45F0055FA6F /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 493776641D03D45F0055FA6F /* BaseViewModel.m */; };
+		495CF7381D28E82000C11303 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 495CF7371D28E82000C11303 /* Reachability.m */; };
 		498DFC2A1D041E27006ADAC0 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498DFC281D041E27006ADAC0 /* MenuViewController.m */; };
 		498DFC2B1D041E27006ADAC0 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 498DFC291D041E27006ADAC0 /* MenuViewController.xib */; };
 		49A059BD1CF7DB01007A791F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A059BC1CF7DB01007A791F /* MainViewController.m */; };
@@ -83,6 +84,8 @@
 		492A13C31D043E17006B8742 /* MenuItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemModel.m; sourceTree = "<group>"; };
 		493776631D03D45F0055FA6F /* BaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
 		493776641D03D45F0055FA6F /* BaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
+		495CF7361D28E82000C11303 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		495CF7371D28E82000C11303 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		498DFC271D041E27006ADAC0 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		498DFC281D041E27006ADAC0 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		498DFC291D041E27006ADAC0 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
@@ -174,6 +177,23 @@
 				4925E00E1CFCB3FD00591D1D /* Utils.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		495CF7351D28E7DC00C11303 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				495CF7391D28E84D00C11303 /* Reachability */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		495CF7391D28E84D00C11303 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				495CF7361D28E82000C11303 /* Reachability.h */,
+				495CF7371D28E82000C11303 /* Reachability.m */,
+			);
+			name = Reachability;
 			sourceTree = "<group>";
 		};
 		498DFC231D041D4D006ADAC0 /* App */ = {
@@ -276,6 +296,7 @@
 		49C4E9651CF7D90200B2A311 /* bmhh */ = {
 			isa = PBXGroup;
 			children = (
+				495CF7351D28E7DC00C11303 /* libs */,
 				498DFC231D041D4D006ADAC0 /* App */,
 				4925E00C1CFCB3A000591D1D /* Utils */,
 				49A059D21CF8248E007A791F /* Custom View */,
@@ -556,6 +577,7 @@
 				492A13C11D043E02006B8742 /* MenuViewModel.m in Sources */,
 				49CFEEE71D0752E700475AF4 /* APINSURLSession.m in Sources */,
 				49A059D01CF821DE007A791F /* StageInfoModel.m in Sources */,
+				495CF7381D28E82000C11303 /* Reachability.m in Sources */,
 				49C4E9681CF7D90200B2A311 /* main.m in Sources */,
 				49A059C31CF7DD5B007A791F /* MainViewModel.m in Sources */,
 				49F16DEF1D2681BE00E4D58F /* BMHHViewController.m in Sources */,
@@ -703,7 +725,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joeteam90.BanMuonHenHo2016;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "261b4b38-8fd1-4c4a-943e-bbad78bf52a3";
 			};
 			name = Debug;
 		};
@@ -719,7 +741,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joeteam90.BanMuonHenHo2016;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "261b4b38-8fd1-4c4a-943e-bbad78bf52a3";
 			};
 			name = Release;
 		};

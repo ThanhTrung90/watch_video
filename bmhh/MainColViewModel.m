@@ -16,7 +16,7 @@
 @end
 @implementation MainColViewModel
 -(id)initWithMainColViewController:(MainCollectionViewController *)mainColVC{
-    self = [super initWithTypeAPIUsed:TypeLibURLSession];
+    self = [super initWithTypeAPIUsed:TypeLibAFNetworking];
     if (self) {
         _mainColVC = mainColVC;
         _mainColVC.mainColViewModel = self;
